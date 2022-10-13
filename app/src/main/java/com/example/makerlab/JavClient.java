@@ -6,28 +6,17 @@ import java.net.Socket;
 public class JavClient {
     private Socket soc;
     private DataOutputStream dout;
-    String ip;
+    private String ip;
+    private int port;
 
-    /**
-     * Initialise a connection to the socket server
-     * !! Match the IP with the server
-     * TODO:: Could make a parameter which will take the value from the Android app UI so IP can be changed all the time
-     */
-    public void initConBuffer() {
-        try {
-            this.soc = new Socket("127.0.0.1", 1234);
+    public JavClient(String ipToConnect, int portToConnect){
+        this.ip = ipToConnect;
+        this.port = portToConnect;
+        try{
+            this.soc = new Socket(this.ip, this.port);
             this.dout = new DataOutputStream(soc.getOutputStream());
-        } catch (IOException eio) {
-            System.out.println("Error on connecting to the server");
-        }
-    }
-
-    public void initConBufferActual(String ip) {
-        try {
-            this.soc = new Socket(ip, 9914);
-            this.dout = new DataOutputStream(soc.getOutputStream());
-        } catch (IOException eio) {
-            System.out.println("Error on connecting to the server");
+        } catch (IOException ie){
+            ie.printStackTrace();
         }
     }
 
@@ -94,7 +83,7 @@ public class JavClient {
     /**
      * Sends Book Emoji
      */
-    public void sendBook(){
+    public void sendBuddyStudy(){
         try{
             this.dout.writeUTF("SHOW BUDDY_STUDY");
             this.dout.flush();
@@ -106,7 +95,7 @@ public class JavClient {
     /**
      * Sends Fitness Emoji
      */
-    public void sendFitness(){
+    public void sendBuddyGym(){
         try{
             this.dout.writeUTF("SHOW BUDDY_GYM");
             this.dout.flush();
@@ -120,7 +109,7 @@ public class JavClient {
      */
     public void sendEmergency(){
         try{
-            this.dout.writeUTF("SHOW EMERGENCY");
+            this.dout.writeUTF("SHOW EMR");
             this.dout.flush();
         } catch (IOException ioe){
             System.out.println("Error sending message");
@@ -162,6 +151,15 @@ public class JavClient {
     public void sendSwapCommand(){
         try{
             this.dout.writeUTF("SWAP");
+            this.dout.flush();
+        } catch (IOException ioe){
+            System.out.println("Error sending message");
+        }
+    }
+
+    public void sendDoNotDisturb(){
+        try{
+            this.dout.writeUTF("SHOW DD");
             this.dout.flush();
         } catch (IOException ioe){
             System.out.println("Error sending message");

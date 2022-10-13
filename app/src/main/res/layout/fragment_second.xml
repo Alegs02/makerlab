@@ -26,9 +26,10 @@
             android:id="@+id/button_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="612dp"
+            android:layout_marginTop="692dp"
             android:text="@string/previous"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -111,6 +112,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fitness" />
 
+        <ImageButton
+            android:id="@+id/emergency2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:src="@drawable/emergency__2_"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="671dp" />
+
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
@@ -170,6 +179,17 @@
             android:text='"I feel horrible..."'
             app:layout_constraintStart_toEndOf="@+id/emergency"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/tftDoNotDisturb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="64dp"
+            android:text="&quot;Please, do not disturb&quot;"
+            app:layout_constraintStart_toEndOf="@+id/emergency2"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

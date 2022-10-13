@@ -24,11 +24,8 @@ public class FirstFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -38,15 +35,10 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 valid= binding.validation.getText().toString();
-                    JavClient J;
-                    J = new JavClient();
                     if (valid.equals("01234")) {
-
                         NavHostFragment.findNavController(FirstFragment.this)
                                 .navigate(R.id.action_FirstFragment_to_SecondFragment);
-
                     }
-
             }
         });
     }
